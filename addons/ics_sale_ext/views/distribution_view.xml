@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="distribution_views_tree" model="ir.ui.view">
+            <field name="name">Distribution.tree</field>
+            <field name="model">distribution</field>
+            <field name="arch" type="xml">
+                <tree string="Distribution Views" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="distribution_action" model="ir.actions.act_window">
+            <field name="name">Distribution</field>
+            <field name="res_model">distribution</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="distribution_views_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    There's no data yet
+                </p>
+            </field>
+        </record>
+    <menuitem
+            action="ics_sale_ext.distribution_action"
+            id="distribution_action_menu"
+            name="Distribution"
+            parent="sale.menu_sale_config" sequence="1"/>
+    </data>
+</odoo>

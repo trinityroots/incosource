@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_distribution_user,access_distribution,model_distribution,base.group_user,1,1,1,1
+access_sale_office_user,access_sale_office,model_sale_office,base.group_user,1,1,1,1
