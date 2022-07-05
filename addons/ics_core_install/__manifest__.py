@@ -6,6 +6,7 @@
     'version': '15.0.0.0.1',
     'depends': [
         'effective_date_change',
+        'ics_account_ext',
         'ics_core_update',
         'ics_sale_ext'
     ]
