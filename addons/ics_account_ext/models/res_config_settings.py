@@ -8,4 +8,3 @@ class ResConfigSettings(models.TransientModel):
         string='Authorized Signature',
         related='company_id.authorized_signature',
     )
-#     company_id = fields.Many2one('res.company', required=True, readonly=True, default=lambda self: self.env.company)
