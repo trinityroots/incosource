@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ics_account_ext_res_config_settings_view_inherit" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.account</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="account.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='use_invoice_terms']" position="after">
+                <div class="col-12 col-lg-6 o_setting_box" id="authorized_signature">
+                    <div class="o_setting_left_pane">
+                        <field name="authorized_signature"/>
+                    </div>
+                    <div class="o_setting_right_pane">
+                        <label for="authorized_signature"/>
+                        <span class="fa fa-lg fa-building-o"
+                              title="Values set here are company-specific."
+                              aria-label="Values set here are company-specific."
+                              groups="base.group_multi_company" role="img"/>
+                        <div class="text-muted">
+                            <field name="authorized_signature"
+                                   widget="image"
+                                   class="float-left oe_avatar"/>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
