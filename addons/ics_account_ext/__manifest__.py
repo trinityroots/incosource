@@ -11,6 +11,8 @@
     ],
     'data': [
         'views/res_partner_form_views.xml',
+        'views/view_company_form.xml',
+        'views/res_config_settings_view_form.xml',
     ],
     'license': 'LGPL-3',
 }
