@@ -7,6 +7,7 @@
     'depends': [
         'effective_date_change',
         'ics_account_ext',
+        'ics_account_report',
         'ics_core_update',
         'ics_sale_ext'
     ]
