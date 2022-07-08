@@ -17,8 +17,10 @@
                      </group>
 
                      <footer>
-                         <button string="Change" type="object" name="update_effective_date" />
-                         <button string="Cancel" special="cancel" class="btn btn-secondary" />
+                         <button string="Change" type="object" name="update_effective_date"
+                         />
+                         <button string="Cancel" special="cancel"  class="btn btn-secondary"
+                         />
                      </footer>
                  </form>
 

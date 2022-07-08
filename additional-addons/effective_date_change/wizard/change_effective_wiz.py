@@ -24,7 +24,8 @@ class ChangeEffectiveWiz(models.TransientModel):
     def _effective_future(self):
         for selected in self.env['stock.picking'].browse(
                 self._context.get('active_ids', [])):
-            selected.date_done = self.effective_date
+            if self.effective_date:
+                selected.date_done = self.effective_date
             current_date = datetime.now()
 
             # Compare today's date with selected date
@@ -42,7 +43,6 @@ class ChangeEffectiveWiz(models.TransientModel):
     # Saving record
     def update_effective_date(self):
         query = QueryList()
-        print('------------------------------------\n', query)
         for record in self.env['stock.picking'].browse(
                 self._context.get('active_ids', [])):
 
@@ -118,6 +118,12 @@ class ChangeEffectiveWiz(models.TransientModel):
                     _logger.debug("Successfully changed stock_move_line")
 
                 else:
+                    if record.picking_type_id.code == 'outgoing' \
+                            and record.sale_id:
+                        record.sale_id.date_order = self.effective_date
+                    elif record.picking_type_id.code == 'incoming' \
+                            and record.purchase_id:
+                        record.purchase_id.date_approve = self.effective_date
                     # If rewrite_related_picking is checked (True) then update all related picking based on origin
                     # Find SO or PO based on origin name
                     do_query(
