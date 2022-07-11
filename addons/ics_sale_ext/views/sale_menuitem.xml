@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Top menu item -->
+        <record model="ir.ui.menu" id="sale.sales_team_config">
+            <field name="name" eval="'Province'"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="sales_team.crm_team_action_config">
+            <field name="name">Province</field>
+        </record>
+
+    </data>
+</odoo>
