@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- QWeb Reports -->
+    <record id="form_tax_invoice_format" model="report.paperformat">
+        <field name="name">Tax Invoice</field>
+        <field name="default" eval="True"/>
+        <field name="format">custom</field>
+        <field name="page_height">280</field>
+        <field name="page_width">239</field>
+        <field name="orientation">Portrait</field>
+        <field name="margin_top">80</field>
+        <field name="margin_bottom">75</field>
+        <field name="margin_left">0</field>
+        <field name="margin_right">2</field>
+        <field name="header_spacing">75</field>
+        <field name="dpi">90</field>
+    </record>
+<!--    # qweb-pdf, html-->
+    <report id="action_form_tax_invoice_views"
+            string="Tax Invoice"
+            model="account.move"
+            report_type="qweb-pdf"
+            paperformat="ics_account_report.form_tax_invoice_format"
+            file="ics_account_report.form_tax_invoice_templates"
+            name="ics_account_report.form_tax_invoice"
+            menu="False"
+            attachment_use="False"/>
+
+    </data>
+</odoo>
