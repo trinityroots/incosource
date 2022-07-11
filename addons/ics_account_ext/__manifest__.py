@@ -5,6 +5,7 @@
     'author': 'Santi T.',
     'website': 'https://roots.tech',
     'version': '15.0.0.0.1',
+    "external_dependencies": {"python": ["bahttext"]},
     'depends': [
         'ics_core_update',
         'account',

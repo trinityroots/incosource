@@ -8,6 +8,7 @@
     'depends': [
         'ics_core_update',
         'sale',
+        'sales_team',
     ],
     'data': [
         'security/ir.model.access.csv',
