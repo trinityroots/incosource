@@ -7,7 +7,7 @@
     </template>
 
     <record model="ir.actions.report" id="account.account_invoices">
-        <field name="name" eval="'Tax Invoice'"/>
+        <field name="name" eval="'Tax Invoice/Receipts'"/>
         <field name="paperformat_id" ref="ics_account_report.form_tax_invoice_format"/>
     </record>
 
