@@ -58,8 +58,8 @@ def test_onchange_partner(
         crm,
         partner4):
     partner4.write({
-        'shop_type_id': partner_industry.id,
-        'province_id': crm.id,
+        'industry_id': partner_industry.id,
+        'team_id': crm.id,
         'distribution_id': distribution.id,
         'sale_office_id': sale_office.id
     })
@@ -67,6 +67,6 @@ def test_onchange_partner(
     sale_order1._onchange_partner()
 
     assert sale_order1.shop_type_id.id == partner_industry.id
-    assert sale_order1.province_id.id == crm.id
+    assert sale_order1.team_id.id == crm.id
     assert sale_order1.distribution_id.id == distribution.id
     assert sale_order1.sale_office_id.id == sale_office.id
