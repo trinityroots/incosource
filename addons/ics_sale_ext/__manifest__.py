@@ -9,6 +9,7 @@
         'ics_core_update',
         'sale',
         'sales_team',
+        'pos_sale',
     ],
     'data': [
         'security/ir.model.access.csv',
@@ -21,4 +22,5 @@
         'views/sale_report_view.xml',
     ],
     'license': 'LGPL-3',
+    'post_load': 'post_load_hook',
 }

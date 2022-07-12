@@ -9,9 +9,12 @@
             <xpath expr="//page[@name='other_information']/group[1]/group[1]/field[@name='tag_ids']" position="after">
                 <field name="customer_rank" invisible="1"/>
                 <field name="shop_type_id" attrs="{'invisible': [('customer_rank', '&lt;=', 0)]}"/>
-                <field name="province_id" attrs="{'invisible': [('customer_rank', '&lt;=', 0)]}"/>
                 <field name="distribution_id" attrs="{'invisible': [('customer_rank', '&lt;=', 0)]}"/>
                 <field name="sale_office_id" attrs="{'invisible': [('customer_rank', '&lt;=', 0)]}"/>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="string">Province</attribute>
+                <attribute name="attrs">{'invisible': [('customer_rank', '&lt;=', 0)]}</attribute>
             </xpath>
         </field>
     </record>
