@@ -3,26 +3,26 @@ from odoo import fields, models
 
 class SaleReport(models.Model):
     _inherit = "sale.report"
+    #
+    # shop_type_id = fields.Many2one(
+    #     string='Shop Type',
+    #     comodel_name='res.partner.industry',
+    # )
 
-    shop_type_id = fields.Many2one(
-        string='Shop Type',
-        comodel_name='res.partner.industry',
-    )
-
-    province_id = fields.Many2one(
-        string='Province',
-        comodel_name='crm.team'
-    )
-
-    distribution_id = fields.Many2one(
-        string='Distribution',
-        comodel_name='distribution',
-    )
-
-    sale_office_id = fields.Many2one(
-        string='Sale Office',
-        comodel_name='sale.office',
-    )
+    # province_id = fields.Many2one(
+    #     string='Province',
+    #     comodel_name='crm.team'
+    # )
+    #
+    # distribution_id = fields.Many2one(
+    #     string='Distribution',
+    #     comodel_name='distribution',
+    # )
+    #
+    # sale_office_id = fields.Many2one(
+    #     string='Sale Office',
+    #     comodel_name='sale.office',
+    # )
 
     # def _select_sale(self, fields=None):
     #     if not fields:

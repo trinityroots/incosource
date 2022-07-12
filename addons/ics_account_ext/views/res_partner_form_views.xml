@@ -7,7 +7,7 @@
         <field name="inherit_id" ref="account.view_partner_property_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='sale']/field[@name='property_payment_term_id']" position="after">
-                <field name="customer_reference" />
+                <field name="customer_reference" string="Customer Code"/>
             </xpath>
         </field>
     </record>
