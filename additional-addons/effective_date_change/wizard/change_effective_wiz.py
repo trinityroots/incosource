@@ -24,8 +24,8 @@ class ChangeEffectiveWiz(models.TransientModel):
     def _effective_future(self):
         for selected in self.env['stock.picking'].browse(
                 self._context.get('active_ids', [])):
-            if self.effective_date:
-                selected.date_done = self.effective_date
+            # if self.effective_date:
+            #     selected.date_done = self.effective_date
             current_date = datetime.now()
 
             # Compare today's date with selected date
@@ -45,6 +45,9 @@ class ChangeEffectiveWiz(models.TransientModel):
         query = QueryList()
         for record in self.env['stock.picking'].browse(
                 self._context.get('active_ids', [])):
+
+            if self.effective_date:
+                record.date_done = self.effective_date
 
             # Define fields that called to wizard (model.Transient) from
             # stock.picking model (model.Models)
@@ -74,7 +77,7 @@ class ChangeEffectiveWiz(models.TransientModel):
                     elif record.picking_type_id.code == 'incoming' \
                             and record.purchase_id:
                         record.purchase_id.date_approve = self.effective_date
-                    # If rewrite_related_picking is not checked (False) then update current picking only
+                    # If rew2rite_related_picking is not checked (False) then update current picking only
                     # Update stock_picking
                     do_update(
                         query.update_stock_picking_by_name,
@@ -95,6 +98,13 @@ class ChangeEffectiveWiz(models.TransientModel):
                         self.effective_date,
                         concat_pulled_name)
                     _logger.debug("Successfully changed account_move")
+
+                    # Update valuation
+                    do_update(
+                        query.update_stock_valuation,
+                        self.effective_date,
+                        tuple(record.move_lines.ids))
+                    _logger.debug("Successfully changed valuation")
 
                     # Update account_move_line
                     do_update(

@@ -9,6 +9,7 @@
             <xpath expr="//pivot/field[@name='team_id']" position="after">
                 <field name="distribution_id" type="col"/>
                 <field name="sale_office_id" type="col"/>
+                <field name="name" type="col"/>
             </xpath>
         </field>
     </record>
