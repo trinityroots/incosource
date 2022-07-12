@@ -6,9 +6,13 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//field[@name='industry_id']" position="attributes">
+                <attribute name="string">Shop Type</attribute>
+            </xpath>
+            <xpath expr="//field[@name='team_id']" position="attributes">
+                <attribute name="string">Province</attribute>
+            </xpath>
             <xpath expr="//group[@name='misc']/field[@name='ref']" position="after">
-                <field name="shop_type_id" />
-                <field name="province_id" />
                 <field name="distribution_id" />
                 <field name="sale_office_id" />
             </xpath>

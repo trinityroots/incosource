@@ -7,7 +7,8 @@
         <field name="inherit_id" ref="base.view_company_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='favicon']" position="after">
-                <field name="authorized_signature" widget="image" class="float-left oe_avatar"/>
+                <field name="authorized_signature" readonly="1" force_save="1"
+                       widget="image" class="float-left oe_avatar"/>
             </xpath>
         </field>
     </record>

@@ -49,11 +49,33 @@ def sale_order1(env):
     return env.ref('sale.sale_order_1')
 
 
-def test__select_sale(env, model):
-    res = model._select_sale(fields=None)
-    assert 'shop_type_id' in res
+@pytest.mark.parametrize('test_input,expected', [
+    ({'fields': None},
+     {'fields': 'sale_office_id'}),
+    ({'fields': {'sale_office_id': 'sale_office_id'}},
+     {'name': 'sale_office_id'}),
+])
+def test__select_sale(model, test_input, expected):
+    res = model._select_sale(fields=test_input.get('fields'))
+    assert 'sale_office_id' in res
 
 
 def test_from_sale(env, model):
     res = model._from_sale(from_clause='')
     assert 'distribution' in res
+
+
+def test__group_by_sale(model):
+    res = model._group_by_sale(groupby='')
+    assert 's.sale_office_id' in res
+
+
+@pytest.mark.parametrize('test_input,expected', [
+    ({'fields': None},
+     {'fields': 'sale_office_id'}),
+    ({'fields': {'sale_office_id': 'sale_office_id'}},
+     {'name': 'sale_office_id'}),
+])
+def test__select_pos(model, test_input, expected):
+    res = model._select_pos(fields=test_input.get('fields'))
+    assert 'sale_office_id' in res

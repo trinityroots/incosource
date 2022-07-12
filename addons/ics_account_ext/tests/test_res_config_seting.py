@@ -20,5 +20,23 @@ def config(model):
     return model.create({})
 
 
-def test_set_values(config, company):
-    assert config.authorized_signature == company.authorized_signature
+def test_set_values(config):
+    config.write({
+        'authorized_signature': '1234'
+    })
+
+    config.set_values()
+    assert config.authorized_signature.decode('ascii') == '1234'
+
+
+@pytest.fixture
+def config_param(env):
+    return env['ir.config_parameter']
+
+
+def test_get_values(config, config_param):
+    config_param.set_param(
+        'ics_account_ext.authorized_signature', '1234'
+    )
+    res = config.get_values()
+    assert res['authorized_signature'] == '1234'

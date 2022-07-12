@@ -7,10 +7,9 @@
         <field name="inherit_id" ref="sale.view_order_product_pivot"/>
         <field name="arch" type="xml">
             <xpath expr="//pivot/field[@name='team_id']" position="after">
-                <field name="shop_type_id" type="col"/>
-                <field name="province_id" type="col"/>
                 <field name="distribution_id" type="col"/>
                 <field name="sale_office_id" type="col"/>
+                <field name="name" type="col"/>
             </xpath>
         </field>
     </record>
