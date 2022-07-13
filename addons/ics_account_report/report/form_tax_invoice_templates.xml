@@ -123,7 +123,13 @@
                 <br/>
                 <span t-if="o.partner_id.city" t-field="o.partner_id.city"/>,<span t-if="o.partner_id.zip" t-field="o.partner_id.zip"/>
                 <br/>
-                เลขประจำตัวผู้เสียภาษีอากร: <span t-if="o.partner_id.vat" t-field="o.partner_id.vat"/>
+                <t t-if="o.currency_id.name == 'THB'">
+                    เลขประจำตัวผู้เสียภาษีอากร:
+                </t>
+                <t t-else="">
+                    VAT:
+                </t>
+                <span t-if="o.partner_id.vat" t-field="o.partner_id.vat"/>
             </div>
 <!---->
             <div class="font14" style="position: absolute; left: 680px;top: 100px;text-align:left;width:140px;">
