@@ -139,8 +139,17 @@ class ChangeEffectiveWiz(models.TransientModel):
                     do_query(
                         query.find_name_from_stock_picking,
                         pulled_origin_name)
-                    pulled_stock_picking = [pulled_stock_picking_as_row[0]
-                                            for pulled_stock_picking_as_row in self.env.cr.fetchall()]
+                    picks = self.env.cr.fetchall()
+                    pulled_stock_picking = [
+                        pulled_stock_picking_as_row[0]
+                        for pulled_stock_picking_as_row in picks
+                    ]
+
+                    move_lines = self.env['stock.picking'].browse([
+                        pulled_stock_picking_as_row[1]
+                        for pulled_stock_picking_as_row in picks
+                    ]).mapped('move_lines')
+
                     percentage_stock_picking = do_concat_loop(
                         pulled_stock_picking)
 
@@ -176,6 +185,13 @@ class ChangeEffectiveWiz(models.TransientModel):
                             self.effective_date,
                             percentage_stock_picking)
                         _logger.debug("Successfully changed account_move_line")
+
+                        # Update valuation
+                        do_update(
+                            query.update_stock_valuation,
+                            self.effective_date,
+                            tuple(move_lines.ids))
+                        _logger.debug("Successfully changed valuation")
 
                         # Update Stock Move
                         do_update(
