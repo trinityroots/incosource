@@ -10,9 +10,11 @@
                 <attribute name="string">Shop Type</attribute>
             </xpath>
             <xpath expr="//field[@name='team_id']" position="attributes">
-                <attribute name="string">Province</attribute>
+                <attribute name="invisible">1</attribute>
             </xpath>
             <xpath expr="//group[@name='misc']/field[@name='ref']" position="after">
+                <field name="team_id" string="Province"/>
+                <field name="industry_id" string="Shop Type"/>
                 <field name="distribution_id" />
                 <field name="sale_office_id" />
             </xpath>
