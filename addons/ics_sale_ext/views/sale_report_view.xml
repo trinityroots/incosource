@@ -7,6 +7,7 @@
         <field name="inherit_id" ref="sale.view_order_product_pivot"/>
         <field name="arch" type="xml">
             <xpath expr="//pivot/field[@name='team_id']" position="after">
+                <field name="industry_id" type="col"/>
                 <field name="distribution_id" type="col"/>
                 <field name="sale_office_id" type="col"/>
                 <field name="name" type="col"/>
@@ -22,6 +23,7 @@
             <filter name="industry_id" position="after">
                 <separator/>
                     <filter string="Province" name="team_id" context="{'group_by':'team_id'}"/>
+                    <filter string="Shop Type" name="industry_id" context="{'group_by':'industry_id'}"/>
                     <filter string="Distribution" name="distribution_id" context="{'group_by':'distribution_id'}"/>
                     <filter string="Sale Office" name="sale_office_id" context="{'group_by':'sale_office_id'}"/>
                 <separator/>
