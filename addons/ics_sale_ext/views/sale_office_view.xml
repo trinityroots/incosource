@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sale_office_views_tree" model="ir.ui.view">
+            <field name="name">sale.office.tree</field>
+            <field name="model">sale.office</field>
+            <field name="arch" type="xml">
+                <tree string="Sale Office Views" editable="bottom">
+                    <field name="sequence" widget="handle"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="sale_office_action" model="ir.actions.act_window">
+            <field name="name">Sale Office</field>
+            <field name="res_model">sale.office</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="sale_office_views_tree"/>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_empty_folder">
+                    There's no data yet
+                </p>
+            </field>
+        </record>
+    <menuitem
+            action="sale_office_action"
+            id="sale_office_action_menu"
+            name="Sale Office"
+            parent="sale.menu_sale_config" sequence="1"/>
+    </data>
+</odoo>

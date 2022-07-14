@@ -1,0 +1,14 @@
+<odoo>
+
+    <template id="report_invoice_document_inherit" inherit_id="account.report_invoice_document">
+        <xpath expr='//t[@t-call="web.external_layout"]' position="replace">
+            <t t-call="ics_account_report.form_tax_invoice" />
+        </xpath>
+    </template>
+
+    <record model="ir.actions.report" id="account.account_invoices">
+        <field name="name" eval="'Tax Invoice/Receipts'"/>
+        <field name="paperformat_id" ref="ics_account_report.form_tax_invoice_format"/>
+    </record>
+
+</odoo>
