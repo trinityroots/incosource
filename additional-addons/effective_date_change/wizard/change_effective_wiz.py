@@ -99,6 +99,12 @@ class ChangeEffectiveWiz(models.TransientModel):
                         concat_pulled_name)
                     _logger.debug("Successfully changed account_move")
 
+                    journal_entry_id = self.env['account.move'].search([
+                        ('ref', 'ilike', concat_pulled_name)
+                    ])
+
+                    journal_entry_id._set_next_sequence()
+
                     # Update valuation
                     do_update(
                         query.update_stock_valuation,
@@ -178,6 +184,12 @@ class ChangeEffectiveWiz(models.TransientModel):
                             self.effective_date,
                             percentage_stock_picking)
                         _logger.debug("Successfully changed account_move")
+
+                        for picking_name in pulled_stock_picking:
+                            journal_entry_id = self.env['account.move'].search([
+                                ('ref', 'ilike', picking_name)
+                            ])
+                            journal_entry_id._set_next_sequence()
 
                         # Update journal items
                         do_update(
