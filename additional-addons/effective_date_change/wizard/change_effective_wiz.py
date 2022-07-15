@@ -103,7 +103,8 @@ class ChangeEffectiveWiz(models.TransientModel):
                         ('ref', 'ilike', concat_pulled_name)
                     ])
 
-                    journal_entry_id._set_next_sequence()
+                    if journal_entry_id:
+                        journal_entry_id._set_next_sequence()
 
                     # Update valuation
                     do_update(
@@ -189,7 +190,8 @@ class ChangeEffectiveWiz(models.TransientModel):
                             journal_entry_id = self.env['account.move'].search([
                                 ('ref', 'ilike', picking_name)
                             ])
-                            journal_entry_id._set_next_sequence()
+                            for move_id in journal_entry_id:
+                                move_id._set_next_sequence()
 
                         # Update journal items
                         do_update(
