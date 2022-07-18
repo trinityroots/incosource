@@ -13,9 +13,9 @@
         <t t-set="taxes" t-value="o.invoice_line_ids.mapped('tax_ids')"/>
         <t t-set="invoice_tax_amount" t-if="taxes" t-value="taxes[0].amount"/>
         <t t-set="tax_totals" t-value="json.loads(o.tax_totals_json)"/>
-        <div class="page font16" style="font-family:Tahoma; font-weight: bold;">
+        <div class="page font16" style="font-family:TahomaRegular;">
             <table class="font15"
-                   style="font-family:Tahoma; font-weight: bold; width:86%;border-collapse:collapse; position: absolute; left: 80px;margin-top: 0px;">
+                   style="font-family:TahomaRegular; width:86%;border-collapse:collapse; position: absolute; left: 80px;margin-top: 0px;">
                 <t t-set="counter" t-value="0" />
                 <t t-foreach="o.invoice_line_ids" t-as="line">
                     <tr>
@@ -53,7 +53,7 @@
     </template>
 
     <template id="tax_invoice_header">
-        <div class="header font16" style="font-family:Tahoma;">
+        <div class="header font16" style="font-family:TahomaRegular;">
             <!--  -->
             <div class="font16" style="position: absolute; left: 135px;top: 100px;text-align:left;width:400px;">
                 <span t-if="o.partner_id.customer_reference" t-field="o.partner_id.customer_reference"/>
@@ -123,7 +123,7 @@
     </template>
 
     <template id="tax_invoice_footer">
-        <div class="footer"  style="font-family:Tahoma;">
+        <div class="footer"  style="font-family:TahomaRegular;">
             <div class="font16" style="position: absolute; left: 820px;top: 20px;text-align:right;width:140px;">
                 <span t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 2}'/>
             </div>
