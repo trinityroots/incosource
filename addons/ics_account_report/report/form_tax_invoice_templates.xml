@@ -53,7 +53,7 @@
     </template>
 
     <template id="tax_invoice_header">
-        <div class="header font16" style="font-family:Tahoma; font-weight: bold;">
+        <div class="header font16" style="font-family:Tahoma;">
             <!--  -->
             <div class="font16" style="position: absolute; left: 135px;top: 100px;text-align:left;width:400px;">
                 <span t-if="o.partner_id.customer_reference" t-field="o.partner_id.customer_reference"/>
@@ -93,25 +93,25 @@
                 <span class="topage"/>
             </div>
             <!--  -->
-            <div class="font16" style="position: absolute; left: 75px;top: 305px;text-align:center;width:130px;">
+            <div class="font14" style="position: absolute; left: 80px;top: 305px;text-align:center;width:130px;">
                 <span t-if="o.invoice_line_ids" t-field="o.invoice_line_ids[0].sale_line_ids.order_id.client_order_ref"/>
             </div>
-            <div class="font16" style="position: absolute; left: 200px;top: 305px;text-align:center;width:140px;">
+            <div class="font14" style="position: absolute; left: 205px;top: 305px;text-align:center;width:140px;">
                 <span t-if="o.invoice_line_ids" t-field="o.invoice_line_ids[0].sale_line_ids.order_id.date_order" t-options="{'format': 'dd.MM.YYYY'}"/>
             </div>
-            <div class="font16" style="position: absolute; left: 300px;top: 305px;text-align:center;width:190px;">
+            <div class="font14" style="position: absolute; left: 305px;top: 305px;text-align:center;width:190px;">
                 <span t-if="o.invoice_line_ids" t-field="o.invoice_line_ids[0].sale_line_ids.order_id.name"/>
             </div>
-            <div class="font16" style="position: absolute; left: 500px;top: 305px;text-align:center;width:100px;">
+            <div class="font14" style="position: absolute; left: 505px;top: 305px;text-align:center;width:100px;">
                 <span t-if="o.invoice_payment_term_id" t-field="o.invoice_payment_term_id.name"/>
             </div>
-            <div class="font16" style="position: absolute; left: 620px;top: 305px;text-align:center;width:100px;">
+            <div class="font14" style="position: absolute; left: 625px;top: 305px;text-align:center;width:100px;">
                 <span t-if="o.invoice_date_due" t-field="o.invoice_date_due" t-options="{'format': 'dd.MM.YYYY'}"/>
             </div>
-            <div class="font16" style="position: absolute; left: 730px;top: 305px;text-align:center;width:100px;">
+            <div class="font14" style="position: absolute; left: 735px;top: 305px;text-align:center;width:100px;">
                 <!--                 -  -->
             </div>
-            <div class="font16" style="position: absolute; left: 840px;top: 305px;text-align:center;width:115px;">
+            <div class="font14" style="position: absolute; left: 843px;top: 305px;text-align:left;width:115px;">
                 <t t-if="o.invoice_line_ids">
                     <t t-if="o.invoice_line_ids[0].sale_line_ids.order_id.tag_ids">
                         <t t-esc="o.invoice_line_ids[0].sale_line_ids.order_id.tag_ids[0].name"/>
@@ -123,7 +123,7 @@
     </template>
 
     <template id="tax_invoice_footer">
-        <div class="footer"  style="font-family:Tahoma; font-weight: bold;">
+        <div class="footer"  style="font-family:Tahoma;">
             <div class="font16" style="position: absolute; left: 820px;top: 20px;text-align:right;width:140px;">
                 <span t-esc="o.amount_untaxed" t-options='{"widget": "float", "precision": 2}'/>
             </div>
