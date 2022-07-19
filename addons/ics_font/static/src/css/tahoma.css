@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'TahomaRegular';
+  src: url('/ics_font/static/src/font/Tahoma-Regular-font.ttf') format('woff'),
+    url('/ics_font/static/src/font/Tahoma-Regular-font.ttf') format('truetype');
+}
+
+.text_line_limit {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 600px;
+   display: -webkit-box;
+   -webkit-line-clamp: 2; /* number of lines to show */
+           line-clamp: 2;
+   -webkit-box-orient: vertical;
+    }
+
+.text_address_limit {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   width: 430px;
+   height: 80px;
+   display: -webkit-box;
+   -webkit-line-clamp: 1; /* number of lines to show */
+           line-clamp: 1;
+   -webkit-box-orient: vertical;
+    }
+
+.font14{
+    font-family:Tahoma;
+    font-size:14px;
+    color: black;
+    }
+
+.font15{
+    font-family:Tahoma;
+    font-size:15px;
+    color: black;
+}
+
+.font16{
+    font-family:Tahoma;
+    font-size:16px;
+    color: black;
+    }
+
+.bg-red{
+    background-color: red;
+    color: white;
+}
+
+.bg-blue{
+    background-color: blue;
+    color: white;
+}

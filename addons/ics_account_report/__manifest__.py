@@ -8,6 +8,7 @@
     'depends': [
         'ics_account_ext',
         'point_of_sale',
+        'ics_font',
     ],
     'data': [
         'report/form_tax_invoice_templates.xml',
